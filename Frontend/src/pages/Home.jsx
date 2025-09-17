@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
 import {FaArrowRight} from "react-icons/fa"
 import {Link} from "react-router-dom"
 import HighlightText from '../components/core/HomePage/HighlightText'
@@ -198,6 +198,7 @@ const Home = () => {
 
             <h2 className='text-center text-4xl font-semobold mt-10'>review from Other Learners</h2>
             {/* Review Slider here */}
+            
       </div>
 
 
