@@ -1,7 +1,6 @@
 import React from 'react'
 
 const IconBtn = ({
-
     text,
     onclick,
     children,
@@ -11,20 +10,20 @@ const IconBtn = ({
     type,
 }) => {
   return (
-    <button
+    <button 
     disabled={disabled}
     onClick={onclick}
     type={type}>
         {
-             children ? (
+            children ? (
                 <>
                     <span>
                         {text}
                     </span>
                     {children}
                 </>
-             ) : (text)
-        }   
+            ) : (text)
+        }
     </button>
   )
 }
