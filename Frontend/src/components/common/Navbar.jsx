@@ -47,7 +47,7 @@ const Navbar = () => {
     useEffect( () => {
         console.log("PRINTING TOKEN", token);
         fetchSublinks();
-    },[] )
+    },[]);
 
 
 
@@ -60,7 +60,7 @@ const Navbar = () => {
       <div className='flex w-11/12 max-w-maxContent items-center justify-between'>
         {/* Image */}
       <Link to="/">
-        <img src={logo} width={160} height={42} loading='lazy'/>
+        <img src={logo} alt='Logo' width={160} height={42} loading='lazy'/>
       </Link>
 
       {/* Nav Links */}
