@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { formattedDate } from "../../../utils/dataFormatter"
-import IconBtn from "../../common/IconBtn"
+import IconBtn from "../../Common/IconBtn"
 
 export default function MyProfile() {
   const { user } = useSelector((state) => state.profile)
@@ -11,9 +11,9 @@ export default function MyProfile() {
 
   return (
     <>
-      <h1 className="mb-14 text-3xl font-medium text-richblack-5">
-        My Profile
-      </h1>
+      <h1 className="mb-14 text-3xl font-medium text-richblack-5">My Profile</h1>
+
+      {/* Profile Section */}
       <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         <div className="flex items-center gap-x-4">
           <img
@@ -30,21 +30,19 @@ export default function MyProfile() {
         </div>
         <IconBtn
           text="Edit"
-          onclick={() => {
-            navigate("/dashboard/settings")
-          }}
+          onclick={() => navigate("/dashboard/settings")}
         >
           <RiEditBoxLine />
         </IconBtn>
       </div>
+
+      {/* About Section */}
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         <div className="flex w-full items-center justify-between">
           <p className="text-lg font-semibold text-richblack-5">About</p>
           <IconBtn
             text="Edit"
-            onclick={() => {
-              navigate("/dashboard/settings")
-            }}
+            onclick={() => navigate("/dashboard/settings")}
           >
             <RiEditBoxLine />
           </IconBtn>
@@ -59,16 +57,14 @@ export default function MyProfile() {
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
         </p>
       </div>
+
+      {/* Personal Details */}
       <div className="my-10 flex flex-col gap-y-10 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
         <div className="flex w-full items-center justify-between">
-          <p className="text-lg font-semibold text-richblack-5">
-            Personal Details
-          </p>
+          <p className="text-lg font-semibold text-richblack-5">Personal Details</p>
           <IconBtn
             text="Edit"
-            onclick={() => {
-              navigate("/dashboard/settings")
-            }}
+            onclick={() => navigate("/dashboard/settings")}
           >
             <RiEditBoxLine />
           </IconBtn>
@@ -77,15 +73,11 @@ export default function MyProfile() {
           <div className="flex flex-col gap-y-5">
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
-              <p className="text-sm font-medium text-richblack-5">
-                {user?.firstName}
-              </p>
+              <p className="text-sm font-medium text-richblack-5">{user?.firstName}</p>
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Email</p>
-              <p className="text-sm font-medium text-richblack-5">
-                {user?.email}
-              </p>
+              <p className="text-sm font-medium text-richblack-5">{user?.email}</p>
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Gender</p>
@@ -94,12 +86,11 @@ export default function MyProfile() {
               </p>
             </div>
           </div>
+
           <div className="flex flex-col gap-y-5">
             <div>
               <p className="mb-2 text-sm text-richblack-600">Last Name</p>
-              <p className="text-sm font-medium text-richblack-5">
-                {user?.lastName}
-              </p>
+              <p className="text-sm font-medium text-richblack-5">{user?.lastName}</p>
             </div>
             <div>
               <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
@@ -110,8 +101,9 @@ export default function MyProfile() {
             <div>
               <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
               <p className="text-sm font-medium text-richblack-5">
-                {formattedDate(user?.additionalDetails?.dateOfBirth) ??
-                  "Add Date Of Birth"}
+                {user?.additionalDetails?.dateOfBirth
+                  ? formattedDate(user?.additionalDetails?.dateOfBirth)
+                  : "Add Date Of Birth"}
               </p>
             </div>
           </div>
